@@ -11,26 +11,14 @@
   <h1>Hello Welcome to Random Encounters</h1>
 
   <p>Are you a solo adventurer or do you have a party?</p>
-  <form
-  onsubmit=sayhi()
-  >
+ 
     <label for="fname">Number of Party:</label><br>
-    <input type="text" id="fname" name="fname"><br>
+    <input type="number" id="size" name="fname"><br>
     <label for="lname">Party Level:</label><br>
-    <input type="text" id="lname" name="lname">
+    <input type="number" id="level" name="lname"><br><br>
+
+    <input type="submit" value="Calculate your encounter" onclick=calculateDifficulty()>
   
-    <p>How dangerous do you want this encounter to be?</p>
-  
-    <input type="checkbox" id="easy1" name="easy1" value="easy">
-    <label for="easy"> Easy</label><br>
-    <input type="checkbox" id="normal1" name="normal1" value="normal">
-    <label for="normal"> Normal</label><br>
-    <input type="checkbox" id="hard1" name="hard1" value="hard">
-    <label for="hard"> Hard</label><br>
-    <input type="checkbox" id="deadly1" name="deadly" value="deadly">
-    <label for="deadly"> Deadly</label><br> <br>
-    <input type="submit" value="Submit">
-  </form>
 
   <p>This is your encounter!</p>
 
