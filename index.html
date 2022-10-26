@@ -11,19 +11,31 @@
   <h1>Hello Welcome to Random Encounters</h1>
 
   <p>Are you a solo adventurer or do you have a party?</p>
+  <form
+  onsubmit=sayhi()
+  >
+    <label for="fname">Number of Party:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Party Level:</label><br>
+    <input type="text" id="lname" name="lname">
   
-  <p>Do you want this to be a deadly encounter?</p>
+    <p>How dangerous do you want this encounter to be?</p>
+  
+    <input type="checkbox" id="easy1" name="easy1" value="easy">
+    <label for="easy"> Easy</label><br>
+    <input type="checkbox" id="normal1" name="normal1" value="normal">
+    <label for="normal"> Normal</label><br>
+    <input type="checkbox" id="hard1" name="hard1" value="hard">
+    <label for="hard"> Hard</label><br>
+    <input type="checkbox" id="deadly1" name="deadly" value="deadly">
+    <label for="deadly"> Deadly</label><br> <br>
+    <input type="submit" value="Submit">
+  </form>
 
   <p>This is your encounter!</p>
 
   <!-- This is where you spit out the encounter data -->
 
-  <div class="monster">
-<p>Placeholder</p>
-  </div>
-  
-  <p>Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!</p>
-
-  <script type="text/javascript" src="external.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
