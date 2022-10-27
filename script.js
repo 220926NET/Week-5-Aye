@@ -1,6 +1,14 @@
 // Getting inputs from user, used to determine Challenge Rating
 // Inputs: Single player/Party && Levels
 
+// Use challenge rating to get an array of monsters that fall within that range from API (GET /api/monster with CR as query string parameter)
+
+// Randomly choose a monster from the list, start with only one monster per encounter but can expand upon it
+
+// Get a monster(s) that meets that CR (determined by levels input)
+
+// Display the monster's data
+
 let calculateDifficulty = async () => {
     let xp
     let partySize = document.getElementById("size").value;
@@ -179,10 +187,9 @@ let calculateDifficulty = async () => {
     }
     console.log(`Your selected cr rating is ${cr}`);
 
-    test = await displayInfo(cr);
-    //console.log(test);
-    //return test;
+    await displayInfo(cr);
 }
+
 
 // Takes 'request' as a url string, does an Http request, and returns the json data in response
 async function getFromApi(request) {
@@ -215,36 +222,33 @@ async function randomMonster(calculatedCR) {
     }
 }
 
-// Use challenge rating to get an array of monsters that fall within that range from API (GET /api/monster with CR as query string parameter)
-
-// Randomly choose a monster from the list, start with only one monster per encounter but can expand upon it
-
-// Get a monster(s) that meets that CR (determined by levels input)
-
-// Display the monster's data
-
-let sayhi = (data) => () => console.log(data);
 
 async function displayInfo(cr) {
-let monster = await randomMonster(cr);
+    let monster = await randomMonster(cr);
 
-document.getElementById("name").innerHTML = monster['name'];
-document.getElementById("health").innerHTML = monster['hit_points'];
-document.getElementById("char").innerHTML = monster['charisma'];
-document.getElementById("const").innerHTML = monster['constitution'];
-document.getElementById("int").innerHTML = monster['intelligence'];
-document.getElementById("str").innerHTML = monster['strength'];
-document.getElementById("wis").innerHTML = monster['wisdom'];
-document.getElementById("xp").innerHTML = monster['xp'];
+    document.getElementById("name").innerHTML = monster['name'];
+    document.getElementById("health").innerHTML = monster['hit_points'];
+    document.getElementById("char").innerHTML = monster['charisma'];
+    document.getElementById("const").innerHTML = monster['constitution'];
+    document.getElementById("int").innerHTML = monster['intelligence'];
+    document.getElementById("str").innerHTML = monster['strength'];
+    document.getElementById("wis").innerHTML = monster['wisdom'];
+    document.getElementById("xp").innerHTML = monster['xp'];
 
-let display = "Actions: \n";
-let count1 = monster['actions'].length;
+    document.getElementById("info").className = "visible";
+    let displayNum = 1;
 
-for(let i = 0; i < count1; i++){
-    display += "Name: " + monster['actions'][i]['name'] + "\n";
-    display += "Description: " + monster['actions'][i]['desc'] + "\n";
-}
+    for(let i = 0; i < monster['actions'].length; i++){
+        let id = `disp${displayNum}`;
+        document.getElementById(id).innerHTML = "Name: " + monster['actions'][i]['name'] + "\n";;
+        document.getElementById(id).className = "visible";
 
+        id = `disp${displayNum+1}`;
+        document.getElementById(id).innerHTML = "Description: " + monster['actions'][i]['desc'] + "\n";
+        document.getElementById(id).className = "visible";
 
-document.getElementById("dis").innerHTML = display;
+        displayNum += 2;
+        //let br = `br${i+1}`;
+        document.getElementById(`br${i+1}`).className = "visible";
+    }
 }

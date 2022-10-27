@@ -20,3 +20,20 @@ h1{
 h3{
     color:rgb(56, 224, 56);
 }
+
+#info {
+    padding: 8px; 
+    border: 1px solid white; 
+    /* display: flex;  */
+    /* max-width: 100vw; */
+}
+
+.hidden {
+    /* visibility: hidden; */
+    display: none;
+}
+
+.visible {
+    /* visibility: visible; */
+    display: flex;
+}
