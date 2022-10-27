@@ -1,3 +1,22 @@
 .monster {
     color: coral;
 }
+body{
+    background-color: black;
+    
+}
+label{
+    color : coral;
+}
+p{
+    color:coral;
+}
+pre{
+    color:coral;
+}
+h1{
+    color:coral;
+}
+h3{
+    color:rgb(56, 224, 56);
+}

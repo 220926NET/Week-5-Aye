@@ -222,3 +222,27 @@ async function randomMonster(calculatedCR) {
 // Get a monster(s) that meets that CR (determined by levels input)
 
 // Display the monster's data
+
+let sayhi = (data) => () => console.log(data);
+
+let monster = JSON.parse('{"name":"Aboleth","hit_points":135,"charisma":18, "actions":[{"desc":"lunge","name":"Multiattack"}]}');
+
+document.getElementById("name").innerHTML = monster['name'];
+document.getElementById("health").innerHTML = monster['hit_points'];
+document.getElementById("char").innerHTML = monster['charisma'];
+document.getElementById("const").innerHTML = monster['constitution'];
+document.getElementById("int").innerHTML = monster['intelligence'];
+document.getElementById("str").innerHTML = monster['strength'];
+document.getElementById("wis").innerHTML = monster['wisdom'];
+document.getElementById("xp").innerHTML = monster['xp'];
+
+let display = "Actions: \n";
+let count1 = monster['actions'].length;
+
+for(let i = 0; i < count1; i++){
+    display += "Name: " + monster['actions'][i]['name'] + "\n";
+    display += "Description: " + monster['actions'][i]['desc'] + "\n";
+}
+
+
+document.getElementById("dis").innerHTML = display;
