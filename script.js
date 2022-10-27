@@ -179,9 +179,9 @@ let calculateDifficulty = async () => {
     }
     console.log(`Your selected cr rating is ${cr}`);
 
-    test = await randomMonster(cr);
-    console.log(test);
-    return cr
+    test = await displayInfo(cr);
+    //console.log(test);
+    //return test;
 }
 
 // Takes 'request' as a url string, does an Http request, and returns the json data in response
@@ -225,7 +225,8 @@ async function randomMonster(calculatedCR) {
 
 let sayhi = (data) => () => console.log(data);
 
-let monster = JSON.parse('{"name":"Aboleth","hit_points":135,"charisma":18, "actions":[{"desc":"lunge","name":"Multiattack"}]}');
+async function displayInfo(cr) {
+let monster = await randomMonster(cr);
 
 document.getElementById("name").innerHTML = monster['name'];
 document.getElementById("health").innerHTML = monster['hit_points'];
@@ -246,3 +247,4 @@ for(let i = 0; i < count1; i++){
 
 
 document.getElementById("dis").innerHTML = display;
+}
