@@ -23,20 +23,13 @@ document.getElementById("wis").innerHTML = monster['wisdom'];
 document.getElementById("xp").innerHTML = monster['xp'];
 
 let display = "Actions: \n";
-for(let actions in monster){
-    if(actions = 'actions'){
-        for(let name in monster){
-            let count = 0;
-            if(name = 'name'){
-                display += "Name: " + monster['actions'][count]['name'] + "\n";
-            }
-            if(name = 'desc'){
-                display += "Description: " + monster['actions'][count]['desc'] + "\n";
-            }
-            count = count + 1;
-        }
-    }
+let count1 = monster['actions'].length;
+
+for(let i = 0; i < count1; i++){
+    display += "Name: " + monster['actions'][i]['name'] + "\n";
+    display += "Description: " + monster['actions'][i]['desc'] + "\n";
 }
+
 
 document.getElementById("dis").innerHTML = display;
 
